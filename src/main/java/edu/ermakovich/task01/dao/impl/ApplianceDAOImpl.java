@@ -59,10 +59,8 @@ public class ApplianceDAOImpl implements ApplianceDAO {
 	/**
 	 * does appliance have criteria?
 	 * @param criteria filters by criteria.
-	 * @param appliance
+	 * @param appliance appliance
 	 * @return true if appliance has all criteria.
-	 * @throws NoSuchFieldException
-	 * @throws IllegalAccessException
 	 */
 	private boolean hasCriteria(Criteria criteria, Appliance appliance) throws NoSuchFieldException, IllegalAccessException {
 		if (!appliance.getClass().getSimpleName().equals(criteria.getGroupSearchName())){
@@ -70,9 +68,13 @@ public class ApplianceDAOImpl implements ApplianceDAO {
 		}
 
 		Set<String> properties = criteria.getCriteria().keySet();
+		Field field1 = appliance.getClass().getSuperclass().getDeclaredField("price");
+
 		for (String prop : properties) {
 			Object fieldValue;
+
 			Field field = appliance.getClass().getDeclaredField(prop);
+			field.setAccessible(true);
 			fieldValue = field.get(appliance);
 			if (!fieldValue.toString().equals(criteria.getCriteria().get(prop).toString())) {
 				return false;

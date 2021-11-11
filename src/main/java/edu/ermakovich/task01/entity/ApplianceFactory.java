@@ -1,14 +1,35 @@
 package main.java.edu.ermakovich.task01.entity;
 
+/**
+ * The type Appliance factory.
+ */
 public class ApplianceFactory {
+    /**
+     * The constant instance.
+     */
     public static final ApplianceFactory instance = new ApplianceFactory();
 
+    /**
+     * Instantiates a new Appliance factory.
+     */
     public ApplianceFactory(){
     }
 
+    /**
+     * Gets instance.
+     *
+     * @return the instance
+     */
     public ApplianceFactory getInstance() {
         return instance;
     }
+
+    /**
+     * Get appliance appliance.
+     *
+     * @param type the type
+     * @return the appliance
+     */
     public Appliance getAppliance(ApplianceType type){
         switch (type){
             case OVEN -> new Oven();

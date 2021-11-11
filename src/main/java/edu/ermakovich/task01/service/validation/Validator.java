@@ -8,8 +8,17 @@ import main.java.edu.ermakovich.task01.entity.criteria.SearchCriteria;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * The type Validator.
+ */
 public class Validator {
-	
+
+	/**
+	 * Criteria validator boolean.
+	 *
+	 * @param criteria the criteria
+	 * @return the boolean
+	 */
 	public static boolean criteriaValidator(Criteria criteria) {
 		return switch (criteria.getGroupSearchName()) {
 			case "Laptop" ->  isCriteriaExists(criteria, SearchCriteria.Laptop.class);
@@ -23,6 +32,13 @@ public class Validator {
 		};
 	}
 
+	/**
+	 * Is criteria exists boolean.
+	 *
+	 * @param criteria the criteria
+	 * @param e        the enum type of appliance
+	 * @return the boolean
+	 */
 	public static boolean isCriteriaExists(Criteria criteria, Class<? extends Enum<?>> e){
 		Set<String> properties = criteria.getCriteria().keySet();
 		String[] arr = Arrays.stream(e.getEnumConstants()).map(Enum::toString).toArray(String[]::new);
