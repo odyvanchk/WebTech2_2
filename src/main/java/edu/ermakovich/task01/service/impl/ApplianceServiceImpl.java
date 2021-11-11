@@ -27,30 +27,27 @@ public class ApplianceServiceImpl implements ApplianceService{
 		return applianceDAO.find(criteria);
 	}
 
-	@Override
-	public List<Appliance> findAllTeapots(){
-		List<Appliance> appliances;
-		List<Appliance> allTeapots;
-
-		DAOFactory factory = DAOFactory.getInstance();
-		ApplianceDAO applianceDAO = factory.getApplianceDAO();
-
-		appliances = applianceDAO.parseXML();
-		allTeapots = applianceDAO.findAllTeapots(appliances);
-		return allTeapots;
-	}
 
 	@Override
 	public List<Appliance> findApplianceWithMinPrice() {
-		List<Appliance> appliances;
-		List<Appliance> appliancesWithMinPrice;
-
 		DAOFactory factory = DAOFactory.getInstance();
 		ApplianceDAO applianceDAO = factory.getApplianceDAO();
 
-		appliances = applianceDAO.parseXML();
-		appliancesWithMinPrice = applianceDAO.findApplianceWithMinPrice(appliances);
-		return appliancesWithMinPrice;
+		return applianceDAO.findApplianceWithMinPrice();
+	}
+
+	/**
+	 * Find all appliance by type list.
+	 *
+	 * @param e the enum
+	 * @return the list of appliances
+	 */
+	@Override
+	public List<Appliance> findAll(Class<? extends Enum<?>> e) {
+		DAOFactory factory = DAOFactory.getInstance();
+		ApplianceDAO applianceDAO = factory.getApplianceDAO();
+
+		return applianceDAO.findAll(e);
 	}
 }
 

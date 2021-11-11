@@ -19,17 +19,18 @@ public interface ApplianceService {
 	List<Appliance> find(Criteria criteria);
 
 	/**
-	 * Find all teapots list.
-	 *
-	 * @return the list
-	 */
-	List<Appliance> findAllTeapots();
-
-	/**
 	 * Find appliance with min price list.
 	 *
 	 * @return the list
 	 */
 	List<Appliance> findApplianceWithMinPrice();
+
+	/**
+	 * Find all appliance by type list.
+	 *
+	 * @param e the enum
+	 * @return the list of appliances
+	 */
+	List<Appliance> findAll(Class<? extends Enum<?>> e);
 
 }

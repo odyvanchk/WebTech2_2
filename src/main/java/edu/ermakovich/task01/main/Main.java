@@ -14,15 +14,10 @@ public class Main {
 		ServiceFactory factory = ServiceFactory.getInstance();
 		ApplianceService service = factory.getApplianceService();
 
-		List<Appliance> appliances = new ArrayList<>();
 		System.out.println("Appliance with min price:");
 		PrintApplianceInfo.print(service.findApplianceWithMinPrice());
-
-		Criteria criteriaOven = new Criteria(SearchCriteria.Oven.class.getSimpleName());//"Oven"
-		criteriaOven.add(SearchCriteria.Oven.HEIGHT.toString(), 30.0);
-		criteriaOven.add(SearchCriteria.Oven.DEPTH.toString(), 60);
-
-		System.out.println("Appliance by criteria:");
-		PrintApplianceInfo.print(service.find(criteriaOven));
+		
+		System.out.println("All teapots:");
+		PrintApplianceInfo.print(service.findAll(SearchCriteria.Teapot.class));
 	}
 }

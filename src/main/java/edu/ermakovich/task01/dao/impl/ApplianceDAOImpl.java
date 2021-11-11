@@ -132,18 +132,14 @@ return true;
 		return appliances;
 	}
 
-	/**
-	 * finds all teapots from list of appliances.
-	 * @param list list of appliances.
-	 * @return list of Teapots.
-	 */
+
 	@Override
-	public List<Appliance> findAllTeapots(List<Appliance> list) {
+	public List<Appliance> findAll(Class<? extends Enum<?>> e){
+		List<Appliance> appliances = parseXML();
 		List<Appliance> result = new ArrayList<>();
-		for (Appliance el:
-			 list) {
-			if (el.getClass().getSimpleName().equals(Teapot.class.getSimpleName())){
-				result.add(el);
+		for (Appliance appliance : appliances){
+			if (e.getSimpleName().equals(appliance.getClass().getSimpleName())){
+				result.add(appliance);
 			}
 		}
 		return result;
@@ -155,7 +151,8 @@ return true;
 	 * @return list of appliances.
 	 */
 	@Override
-	public List<Appliance> findApplianceWithMinPrice(List<Appliance> appliances) {
+	public List<Appliance> findApplianceWithMinPrice() {
+		List<Appliance> appliances = parseXML();
 		appliances.sort(Comparator.comparing(Appliance::getPrice));
 		List<Appliance> result = new ArrayList<>();
 
@@ -166,7 +163,6 @@ return true;
 			result.add(appliances.get(i));
 			i++;
 		}
-
 		return result;
 	}
 
