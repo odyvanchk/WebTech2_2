@@ -1,15 +1,32 @@
 package main.java.edu.ermakovich.task01.service.validation;
 
+import main.java.edu.ermakovich.task01.entity.Appliance;
+import main.java.edu.ermakovich.task01.entity.ApplianceType;
 import main.java.edu.ermakovich.task01.entity.criteria.Criteria;
+import main.java.edu.ermakovich.task01.entity.criteria.SearchCriteria;
+
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Validator {
 	
 	public static boolean criteriaValidator(Criteria criteria) {
-		// you may add your own code here
-		
-		return true;
+		return switch (criteria.getGroupSearchName()) {
+			case "Laptop" ->  isCriteriaExists(criteria, SearchCriteria.Laptop.class);
+			case "Oven" -> isCriteriaExists(criteria, SearchCriteria.Oven.class);
+			case "Refrigerator" -> isCriteriaExists(criteria, SearchCriteria.Refrigerator.class);
+			case "Speakers" -> isCriteriaExists(criteria, SearchCriteria.Speakers.class);
+			case "TabletPC" -> isCriteriaExists(criteria, SearchCriteria.TabletPC.class);
+			case "Teapot" -> isCriteriaExists(criteria, SearchCriteria.Teapot.class);
+			case "VacuumCleaner" -> isCriteriaExists(criteria, SearchCriteria.VacuumCleaner.class);
+			default -> false;
+		};
 	}
 
-}
+	public static boolean isCriteriaExists(Criteria criteria, Class<? extends Enum<?>> e){
+		Set<String> properties = criteria.getCriteria().keySet();
+		String[] arr = Arrays.stream(e.getEnumConstants()).map(Enum::toString).toArray(String[]::new);
 
-//you may add your own new classes
+		return Arrays.asList(arr).containsAll(properties);
+	}
+}

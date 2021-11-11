@@ -107,6 +107,9 @@
   <void property="frequencyRangeMax">
    <float>2.3</float>
   </void>
+  <void property="frequencyRangeMin">
+   <float>1.0</float>
+  </void>
   <void property="numberOfSpeakers">
    <int>2</int>
   </void>

@@ -17,6 +17,7 @@ public class ApplianceFactory {
             case TABLETPC -> new TabletPC();
             case REFRIGERATOR -> new Refrigerator();
             case VACUUMCLEANER -> new VacuumCleaner();
+            case TEAPOT -> new Teapot();
         }
         return null;
     }

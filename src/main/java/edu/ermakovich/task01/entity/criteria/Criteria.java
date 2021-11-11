@@ -6,6 +6,11 @@ import java.util.Map;
 public class Criteria {
 
 	private String groupSearchName;
+
+	public Map<String, Object> getCriteria() {
+		return criteria;
+	}
+
 	private Map<String, Object> criteria = new HashMap<String, Object>();
 
 	public Criteria(String groupSearchName) {
@@ -17,9 +22,9 @@ public class Criteria {
 	}
 
 	public void add(String searchCriteria, Object value) {
+
 		criteria.put(searchCriteria, value);
 	}
-	
-	// you may add your own code here
+
 
 }

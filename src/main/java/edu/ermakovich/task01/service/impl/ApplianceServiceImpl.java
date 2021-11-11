@@ -13,19 +13,15 @@ import java.util.List;
 public class ApplianceServiceImpl implements ApplianceService{
 
 	@Override
-	public Appliance find(Criteria criteria) {
+	public List<Appliance> find(Criteria criteria) {
 		if (!Validator.criteriaValidator(criteria)) {
 			return null;
 		}
 		
 		DAOFactory factory = DAOFactory.getInstance();
 		ApplianceDAO applianceDAO = factory.getApplianceDAO();
-		
-		Appliance appliance = applianceDAO.find(criteria);
-		
-		// you may add your own code here
-		
-		return appliance;
+
+		return applianceDAO.find(criteria);
 	}
 
 	@Override

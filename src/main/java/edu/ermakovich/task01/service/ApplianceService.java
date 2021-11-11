@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ApplianceService {	
 	
-	Appliance find(Criteria criteria);
+	List<Appliance> find(Criteria criteria);
 
 	List<Appliance> findAllTeapots();
 

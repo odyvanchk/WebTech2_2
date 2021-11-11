@@ -1,10 +1,8 @@
 package main.java.edu.ermakovich.task01.main;
 
-import main.java.edu.ermakovich.task01.dao.DAOFactory;
-import main.java.edu.ermakovich.task01.dao.impl.ApplianceDAOImpl;
 import main.java.edu.ermakovich.task01.entity.*;
-import main.java.edu.ermakovich.task01.entity.enums.Color;
-import main.java.edu.ermakovich.task01.entity.enums.OS;
+import main.java.edu.ermakovich.task01.entity.criteria.Criteria;
+import main.java.edu.ermakovich.task01.entity.criteria.SearchCriteria;
 import main.java.edu.ermakovich.task01.service.ApplianceService;
 import main.java.edu.ermakovich.task01.service.ServiceFactory;
 
@@ -14,18 +12,25 @@ import java.util.List;
 public class Main {
 
 	public static void main(String[] args) {
-		
+
 		ServiceFactory factory = ServiceFactory.getInstance();
 		ApplianceService service = factory.getApplianceService();
+
+		service.findAllTeapots();
 
 		List<Appliance> appliances = new ArrayList<>();
 		System.out.println(service.findApplianceWithMinPrice());
 
-//
+		Criteria criteriaOven = new Criteria(SearchCriteria.Oven.class.getSimpleName());//"Oven"
+     	criteriaOven.add(SearchCriteria.Oven.CAPACITY.toString(), 1200);
+		criteriaOven = new Criteria(SearchCriteria.Oven.class.getSimpleName());
+		criteriaOven.add(SearchCriteria.Oven.HEIGHT.toString(), 30.0);
+		criteriaOven.add(SearchCriteria.Oven.DEPTH.toString(), 60);
+
+
+		System.out.println(service.find(criteriaOven));
 //		//////////////////////////////////////////////////////////////////
 //
-//		Criteria criteriaOven = new Criteria(SearchCriteria.Oven.class.getSimpleName());//"Oven"
-//		criteriaOven.add(SearchCriteria.Oven.CAPACITY.toString(), 3);
 //
 //		appliance = service.find(criteriaOven);
 //
