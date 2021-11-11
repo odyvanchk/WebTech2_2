@@ -1,0 +1,10 @@
+main.java.edu.ermakovich.task01.dao
+main.java.edu.ermakovich.task01.dao.impl
+main.java.edu.ermakovich.task01.entity
+main.java.edu.ermakovich.task01.entity.criteria
+main.java.edu.ermakovich.task01.entity.enums
+main.java.edu.ermakovich.task01.main
+main.java.edu.ermakovich.task01.service
+main.java.edu.ermakovich.task01.service.impl
+main.java.edu.ermakovich.task01.service.validation
+test

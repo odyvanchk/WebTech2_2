@@ -2,7 +2,6 @@ package main.java.edu.ermakovich.task01.dao.impl;
 
 import main.java.edu.ermakovich.task01.dao.ApplianceDAO;
 import main.java.edu.ermakovich.task01.entity.Appliance;
-import main.java.edu.ermakovich.task01.entity.Teapot;
 import main.java.edu.ermakovich.task01.entity.criteria.Criteria;
 
 import java.beans.XMLDecoder;
@@ -58,9 +57,11 @@ public class ApplianceDAOImpl implements ApplianceDAO {
 
 	/**
 	 * does appliance have criteria?
-	 * @param criteria filters by criteria.
+	 * @param criteria filters by criteria
 	 * @param appliance appliance
-	 * @return true if appliance has all criteria.
+	 * @return true if appliance has all criteria
+	 * @throws NoSuchFieldException if no field
+	 * @throws IllegalAccessException if no access to field
 	 */
 	private boolean hasCriteria(Criteria criteria, Appliance appliance) throws NoSuchFieldException, IllegalAccessException {
 		if (!appliance.getClass().getSimpleName().equals(criteria.getGroupSearchName())){
@@ -147,7 +148,6 @@ return true;
 
 	/**
 	 * finds all appliances with minimal price.
-	 * @param appliances list of appliances.
 	 * @return list of appliances.
 	 */
 	@Override

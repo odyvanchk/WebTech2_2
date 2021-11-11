@@ -35,7 +35,6 @@ public interface ApplianceDAO {
 	/**
 	 * finds all appliances with minimal price.
 	 *
-	 * @param appliances list of appliances.
 	 * @return list of appliances.
 	 */
 	List<Appliance> findApplianceWithMinPrice();
