@@ -28,8 +28,9 @@ public class ApplianceDAOImpl implements ApplianceDAO {
 	@Override
 	public List<Appliance> find(Criteria criteria) {
 		List<Appliance> appliances = new ArrayList<>();
+		XMLDecoder decoder = null;
 		try{
-			XMLDecoder decoder = new XMLDecoder(
+			decoder = new XMLDecoder(
 					new BufferedInputStream(
 							new FileInputStream(PATH)));
 			Appliance result;
@@ -42,7 +43,7 @@ public class ApplianceDAOImpl implements ApplianceDAO {
 			}
 			while(result != null);
 
-			decoder.close();}
+		}
 		catch (FileNotFoundException e){
 			System.out.println("File not found");
 		}
@@ -50,6 +51,9 @@ public class ApplianceDAOImpl implements ApplianceDAO {
 			//end of file
 		} catch (NoSuchFieldException | IllegalAccessException e) {
 			e.printStackTrace();
+		}
+		finally {
+			decoder.close();
 		}
 		return appliances;
 
@@ -112,8 +116,9 @@ return true;
 	@Override
 	public List<Appliance> parseXML() {
 		List<Appliance> appliances = new ArrayList<>();
+		XMLDecoder decoder = null;
 		try{
-			XMLDecoder decoder = new XMLDecoder(
+			decoder = new XMLDecoder(
 				new BufferedInputStream(
 						new FileInputStream(PATH)));
 			Object result;
@@ -123,12 +128,14 @@ return true;
 			}
 			while(result != null);
 
-			decoder.close();}
+			}
 		catch (FileNotFoundException e){
 			System.out.println("File not found");
 		}
 		catch (ArrayIndexOutOfBoundsException ignored){
 			//end of file
+		}finally {
+			decoder.close();
 		}
 		return appliances;
 	}
