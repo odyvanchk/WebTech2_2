@@ -73,11 +73,9 @@ public class ApplianceDAOImpl implements ApplianceDAO {
 		}
 
 		Set<String> properties = criteria.getCriteria().keySet();
-		Field field1 = appliance.getClass().getSuperclass().getDeclaredField("price");
 
 		for (String prop : properties) {
 			Object fieldValue;
-
 			Field field = appliance.getClass().getDeclaredField(prop);
 			field.setAccessible(true);
 			fieldValue = field.get(appliance);

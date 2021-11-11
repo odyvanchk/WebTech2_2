@@ -5,6 +5,7 @@ import main.java.edu.ermakovich.task01.service.ApplianceService;
 import main.java.edu.ermakovich.task01.service.ServiceFactory;
 
 
+
 /**
  * The type Main.
  */
