@@ -76,14 +76,21 @@ public class ApplianceDAOImpl implements ApplianceDAO {
 
 		for (String prop : properties) {
 			Object fieldValue;
-			Field field = appliance.getClass().getDeclaredField(prop);
+			Field field;
+			try {
+				 field = appliance.getClass().getDeclaredField(prop);
+			}
+			catch (NoSuchFieldException e){
+				field = appliance.getClass().getSuperclass().getDeclaredField(prop);
+			}
+
 			field.setAccessible(true);
 			fieldValue = field.get(appliance);
 			if (!fieldValue.toString().equals(criteria.getCriteria().get(prop).toString())) {
 				return false;
 			}
 		}
-return true;
+		return true;
 	}
 
 	/**

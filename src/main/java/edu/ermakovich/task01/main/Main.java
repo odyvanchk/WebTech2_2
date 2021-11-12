@@ -3,6 +3,7 @@ package main.java.edu.ermakovich.task01.main;
 import main.java.edu.ermakovich.task01.entity.criteria.SearchCriteria;
 import main.java.edu.ermakovich.task01.service.ApplianceService;
 import main.java.edu.ermakovich.task01.service.ServiceFactory;
+import main.java.edu.ermakovich.task01.entity.criteria.Criteria;
 
 
 
@@ -25,5 +26,10 @@ public class Main {
 
 		System.out.println("All teapots:");
 		PrintApplianceInfo.print(service.findAll(SearchCriteria.Teapot.class));
+
+		Criteria criteriaOven = new Criteria(SearchCriteria.Oven.class.getSimpleName());
+		criteriaOven.add("s", (double)800);
+		criteriaOven.add(SearchCriteria.Oven.CAPACITY.toString(), 1200);
+		System.out.println(service.find(criteriaOven));
 	}
 }

@@ -32,7 +32,11 @@ public final class SearchCriteria {
 		/**
 		 * Width oven.
 		 */
-		WIDTH("width");
+		WIDTH("width"),
+		/**
+		 * Price oven.
+		 */
+		PRICE("price");
 
 		private final String value;
 
@@ -71,7 +75,11 @@ public final class SearchCriteria {
 		/**
 		 * Display inches laptop.
 		 */
-		DISPLAY_INCHES("displayInches");
+		DISPLAY_INCHES("displayInches"),
+		/**
+		 * Price oven.
+		 */
+		PRICE("price");
 
 		private final String value;
 
@@ -112,7 +120,11 @@ public final class SearchCriteria {
 		/**
 		 * Width refrigerator.
 		 */
-		WIDTH("width");
+		WIDTH("width"),
+		/**
+		 * Price oven.
+		 */
+		PRICE("price");
 
 		private final String value;
 
@@ -153,7 +165,11 @@ public final class SearchCriteria {
 		/**
 		 * Cleaning width vacuum cleaner.
 		 */
-		CLEANING_WIDTH("cleaningWidth");
+		CLEANING_WIDTH("cleaningWidth"),
+		/**
+		 * Price oven.
+		 */
+		PRICE("price");
 
 		private final String value;
 
@@ -190,7 +206,11 @@ public final class SearchCriteria {
 		/**
 		 * Color tablet pc.
 		 */
-		COLOR("Color");
+		COLOR("Color"),
+		/**
+		 * Price oven.
+		 */
+		PRICE("price");
 
 		private final String value;
 
@@ -227,7 +247,11 @@ public final class SearchCriteria {
 		/**
 		 * Cord length speakers.
 		 */
-		CORD_LENGTH("cordLength");
+		CORD_LENGTH("cordLength"),
+		/**
+		 * Price oven.
+		 */
+		PRICE("price");
 
 		private final String value;
 
@@ -256,7 +280,11 @@ public final class SearchCriteria {
 		/**
 		 * Has whistle teapot.
 		 */
-		HAS_WHISTLE("hasWhistle");
+		HAS_WHISTLE("hasWhistle"),
+		/**
+		 * Price oven.
+		 */
+		PRICE("price");
 
 		private final String value;
 
