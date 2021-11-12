@@ -26,10 +26,5 @@ public class Main {
 
 		System.out.println("All teapots:");
 		PrintApplianceInfo.print(service.findAll(SearchCriteria.Teapot.class));
-
-		Criteria criteriaOven = new Criteria(SearchCriteria.Oven.class.getSimpleName());
-		criteriaOven.add("s", (double)800);
-		criteriaOven.add(SearchCriteria.Oven.CAPACITY.toString(), 1200);
-		System.out.println(service.find(criteriaOven));
 	}
 }
